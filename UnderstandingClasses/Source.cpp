@@ -36,6 +36,31 @@ void cTesting::SetAge(int age)
 	this->Age = age;
 }
 
+class cNumber
+{
+private:
+	int MagicNumber;
+public:
+	cNumber(int number);
+	void ShowNumber();
+	void SetMagicNumber(int number);
+};
+
+cNumber::cNumber(int number)
+{
+	this->MagicNumber = number;
+}
+
+void cNumber::ShowNumber()
+{
+	std::cout << "Magic Number: " << this->MagicNumber << std::endl;
+}
+
+void cNumber::SetMagicNumber(int number)
+{
+	this->MagicNumber = number;
+}
+
 int main()
 {
 	cTesting test(55, "TuVieja");
@@ -119,6 +144,13 @@ int main()
 
 	((cTesting*)&test2[0])->SetName("El KPOP");
 	((cTesting*)&test2[0])->SetAge(2023-1990);
+
+	((cTesting*)&test2[0])->ShowInfo();
+
+	((cNumber*)&test2[0])->ShowNumber();
+
+	((cNumber*)&test2[0])->SetMagicNumber(666);
+	((cNumber*)&test2[0])->ShowNumber();
 
 	((cTesting*)&test2[0])->ShowInfo();
 
